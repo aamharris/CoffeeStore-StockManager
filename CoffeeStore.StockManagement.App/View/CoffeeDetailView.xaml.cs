@@ -32,17 +32,17 @@ namespace CoffeeStore.StockManagement.App.View
 
         void CoffeeDetailView_Loaded(object sender, RoutedEventArgs e)
         {
-            LoadData();
+            this.DataContext = SelectedCoffee;
         }
 
-        private void LoadData()
-        {
-            CoffeeNameLabel.Content = SelectedCoffee.CoffeeName;
-            CoffeeIdTextBox.Text = SelectedCoffee.CoffeeId.ToString();
-            CoffeeDescriptionTextBox.Text = SelectedCoffee.Description;
-            CoffeePriceTextBox.Text = SelectedCoffee.Price.ToString();
-            StockAmountTextBox.Text = SelectedCoffee.InventoryAmount.ToString();
-            FirstTimeAddedTextBox.Text = SelectedCoffee.DateAdded.ToShortDateString();
+        //private void LoadData()
+        //{
+            //CoffeeNameLabel.Content = SelectedCoffee.CoffeeName;
+            //CoffeeIdTextBox.Text = SelectedCoffee.CoffeeId.ToString();
+            //CoffeeDescriptionTextBox.Text = SelectedCoffee.Description;
+            //CoffeePriceTextBox.Text = SelectedCoffee.Price.ToString();
+            //StockAmountTextBox.Text = SelectedCoffee.InventoryAmount.ToString();
+            //FirstTimeAddedTextBox.Text = SelectedCoffee.DateAdded.ToShortDateString();
             //if (SelectedCoffee is SuperiorCoffee)
             //    ExtraDescriptionTextBox.Text = (SelectedCoffee as SuperiorCoffee).ExtraDescription;
             //else
@@ -53,7 +53,7 @@ namespace CoffeeStore.StockManagement.App.View
             //img.UriSource = new Uri("/JoeCoffeeStore.StockManagement.App;component/Images/coffee" + SelectedCoffee.CoffeeId + ".jpg", UriKind.Relative);
             //img.EndInit();
             //CoffeeImage.Source = img;
-        }
+        //}
 
         private void DeleteCoffeeButton_Click(object sender, RoutedEventArgs e)
         {

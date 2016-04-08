@@ -24,6 +24,7 @@ namespace CoffeeStore.StockManagement.App.View
     public partial class CoffeeOverviewView
     {
         private Coffee selectedCoffee;
+        private List<Coffee> coffeeList; 
         public CoffeeOverviewView()
         {
             InitializeComponent();
@@ -34,7 +35,8 @@ namespace CoffeeStore.StockManagement.App.View
         private void LoadData()
         {
             CoffeeDataService coffeeDataService = new CoffeeDataService();
-            CoffeeListView.ItemsSource = coffeeDataService.GetAllCoffees();
+            coffeeList = coffeeDataService.GetAllCoffees();
+            CoffeeListView.ItemsSource = coffeeList;
         }
 
         private void EditCoffeeButton_Click(object sender, RoutedEventArgs e)
@@ -52,10 +54,10 @@ namespace CoffeeStore.StockManagement.App.View
             {
                 CoffeeIdLabel.Content = selectedCoffee.CoffeeId;
                 CoffeeNameLabel.Content = selectedCoffee.CoffeeName;
-                DescriptionLabel.Content = selectedCoffee.Description;
+                DescriptionLabel.Text = selectedCoffee.Description;
                 PriceLabel.Content = selectedCoffee.Price;
-                StockAmountLabel.Content = selectedCoffee.InventoryAmount.ToString();
-                FirstTimeAddedLabel.Content = selectedCoffee.DateAdded.ToShortDateString();
+                InventoryAmountLabel.Content = selectedCoffee.InventoryAmount.ToString();
+                DateAddedLabel.Content = selectedCoffee.DateAdded.ToShortDateString();
 
                 //BitmapImage img = new BitmapImage();
                 //img.BeginInit();

@@ -5,29 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CoffeeStore.StockManagement.App"
         mc:Ignorable="d"
-        Title="Coffee Stock Manager" Height="400" Width="640">
+        Title="Coffee Stock Manager" Height="400" Width="700">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="400"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <ListView Grid.Column="0" Margin="5" DisplayMemberPath="CoffeeName"
+        <ListView Grid.Column="0" Margin="5"
                   Name="CoffeeListView" SelectionChanged="CoffeeListView_SelectionChanged">
-
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="15"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Content="{Binding CoffeeName}" Grid.ColumnSpan="2"></Label>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal" Grid.Column="1">
+                            <Label Content="Stock: "></Label>
+                            <Label Content="{Binding InventoryAmount}"></Label>
+                        </StackPanel>
+                    </Grid>
+                    
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
         <Grid Grid.Column="1" Margin="5">
             <Grid.RowDefinitions>
-                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="115"></RowDefinition>
                 <RowDefinition Height="30"></RowDefinition>
                 <RowDefinition Height="30"></RowDefinition>
-                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
                 <RowDefinition Height="30"></RowDefinition>
                 <RowDefinition Height="30"></RowDefinition>
                 <RowDefinition Height="30"></RowDefinition>
                 <RowDefinition Height="30"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150"></ColumnDefinition>
+                <ColumnDefinition Width="125"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Image Name="CoffeeImage" Grid.Row="0"
@@ -36,18 +57,18 @@
             <Label Grid.Row="2" Content="Coffee name" FontWeight="Bold"></Label>
             <Label Grid.Row="3" Content="Description" FontWeight="Bold"></Label>
             <Label Grid.Row="4" Content="Price" FontWeight="Bold"></Label>
-            <Label Grid.Row="5" Content="Stock amount" FontWeight="Bold"></Label>
-            <Label Grid.Row="6" Content="First time added" FontWeight="Bold"></Label>
+            <Label Grid.Row="5" Content="Inventory Amount" FontWeight="Bold"></Label>
+            <Label Grid.Row="6" Content="Date Added" FontWeight="Bold"></Label>
 
             <Label Grid.Row="1" Grid.Column="1" Name="CoffeeIdLabel"></Label>
             <Label Grid.Row="2" Grid.Column="1" Name="CoffeeNameLabel"></Label>
-            <Label Grid.Row="3" Grid.Column="1" Name="DescriptionLabel"></Label>
+            <TextBox Grid.Row="3" Grid.Column="1" Name="DescriptionLabel" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"></TextBox>
             <Label Grid.Row="4" Grid.Column="1" Name="PriceLabel"></Label>
-            <Label Grid.Row="5" Grid.Column="1" Name="StockAmountLabel"></Label>
-            <Label Grid.Row="6" Grid.Column="1" Name="FirstTimeAddedLabel"></Label>
+            <Label Grid.Row="5" Grid.Column="1" Name="InventoryAmountLabel"></Label>
+            <Label Grid.Row="6" Grid.Column="1" Name="DateAddedLabel"></Label>
 
-            <StackPanel Grid.Row="7" >
-                <Button  Name="EditCoffeeButton" Click="EditCoffeeButton_Click"  Content="Edit coffee"></Button>
+            <StackPanel Grid.Row="7" Grid.ColumnSpan="2" HorizontalAlignment="Center" >
+                <Button  Name="EditCoffeeButton" Click="EditCoffeeButton_Click"  Content="Edit coffee" Grid.ColumnSpan="2" Width="75"></Button>
             </StackPanel>
         </Grid>
     </Grid>
