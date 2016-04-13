@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CoffeeStore.StockManagement.App"
         mc:Ignorable="d"
-        Title="Coffee Stock Detail" Height="400" Width="640">
-
+        Title="Coffee Stock Detail" Height="400" Width="640"
+        DataContext="{Binding Source={StaticResource mainViewModelLocator}, Path=CoffeeDetailViewModel}">
+        
     <ScrollViewer>
 
         <Grid Margin="5">
@@ -28,7 +29,7 @@
                 <RowDefinition Height="30"></RowDefinition>
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Name="CoffeeNameLabel" 
-                   Content="{Binding CoffeeName}"
+                   Content="{Binding CoffeeName, Mode=OneWay}"
                    Grid.ColumnSpan="2" FontSize="40" FontWeight="Bold"></Label>
 
             <Image Name="CoffeeImage" Grid.Row="1"
@@ -40,22 +41,21 @@
             <Label Grid.Row="6" Content="First time added" FontWeight="Bold"></Label>
 
             <TextBox Grid.Row="2" Grid.Column="1" Name="CoffeeIdTextBox" 
-                     Text="{Binding CoffeeId}"></TextBox>
+                     Text="{Binding SelectedCoffee.CoffeeIdId, Mode=OneWay}"></TextBox>
             <TextBox Grid.Row="3" Grid.Column="1" Name="CoffeeDescriptionTextBox" 
-                     Text="{Binding Description}" AcceptsReturn="True" Height="75"></TextBox>
+                     Text="{Binding SelectedCoffee.Description}" AcceptsReturn="True" Height="75"></TextBox>
             <TextBox Grid.Row="4" Grid.Column="1" Name="CoffeePriceTextBox"
-                     Text="{Binding Price}"></TextBox>
+                     Text="{Binding SelectedCoffee.Price}"></TextBox>
             <TextBox Grid.Row="5" Grid.Column="1" Name="StockAmountTextBox"
-                     Text="{Binding InventoryAmount}"></TextBox>
+                     Text="{Binding SelectedCoffee.InventoryAmount}"></TextBox>
             <TextBox Grid.Row="6" Grid.Column="1" Name="FirstTimeAddedTextBox"
-                     Text="{Binding DateAdded}"></TextBox>
+                     Text="{Binding SelectedCoffee.DateAdded}"></TextBox>
             <TextBox Grid.Row="7" Grid.Column="1" Name="ExtraDescriptionTextBox"></TextBox>
 
             <StackPanel Grid.Row="9" Orientation="Horizontal" Grid.ColumnSpan="2">
-                <Button Name="SaveCoffeeButton" Click="SaveCoffeeButton_Click" Margin="5" Content="Save coffee"></Button>
-                <Button  Name="DeleteCoffeeButton" Click="DeleteCoffeeButton_Click"  Margin="5" Content="Delete coffee"></Button>
+                <Button Name="SaveCoffeeButton"  Margin="5" Content="Save coffee"></Button>
+                <Button  Name="DeleteCoffeeButton"  Margin="5" Content="Delete coffee"></Button>
             </StackPanel>
-
         </Grid>
     </ScrollViewer>
 </Window>

@@ -1,18 +1,4 @@
-﻿using CoffeeStore.StockManagement.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace CoffeeStore.StockManagement.App.View
 {
@@ -21,19 +7,15 @@ namespace CoffeeStore.StockManagement.App.View
     /// </summary>
     public partial class CoffeeDetailView
     {
-        public Coffee SelectedCoffee { get; set; }
+        //public Coffee SelectedCoffee { get; set; }
 
         public CoffeeDetailView()
         {
             InitializeComponent();
 
-            this.Loaded += CoffeeDetailView_Loaded;
+            //this.Loaded += CoffeeDetailView_Loaded;
         }
 
-        void CoffeeDetailView_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.DataContext = SelectedCoffee;
-        }
 
         //private void LoadData()
         //{
@@ -54,15 +36,5 @@ namespace CoffeeStore.StockManagement.App.View
             //img.EndInit();
             //CoffeeImage.Source = img;
         //}
-
-        private void DeleteCoffeeButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void SaveCoffeeButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
     }
 }
