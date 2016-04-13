@@ -1,12 +1,8 @@
 ﻿using CoffeeStore.StockManagement.Data;
 using CoffeeStore.StockManagement.Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CoffeeStore.StockManagement.App.Services
+namespace CoffeeStore.StockManagement.Services
 {
     public interface ICoffeeDataService
     {
