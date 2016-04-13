@@ -67,7 +67,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\CoffeeDataService.cs" />
+    <Compile Include="Converter\ImageConverter.cs" />
+    <Compile Include="Converter\PriceConverter.cs" />
+    <Compile Include="Utility\CustomCommand.cs" />
+    <Compile Include="ViewModelLocator.cs" />
     <Compile Include="View\CoffeeDetailView.xaml.cs">
       <DependentUpon>CoffeeDetailView.xaml</DependentUpon>
     </Compile>
@@ -104,13 +107,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CoffeeStore.StockManagement.Data\CoffeeStore.StockManagement.Data.csproj">
-      <Project>{e4638b54-f6ea-4194-96fc-445d5d9e1937}</Project>
-      <Name>CoffeeStore.StockManagement.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CoffeeStore.StockManagement.Model\CoffeeStore.StockManagement.Model.csproj">
-      <Project>{7797f03e-1a5d-4f0c-8139-8ae7462b1d81}</Project>
-      <Name>CoffeeStore.StockManagement.Model</Name>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CoffeeStore.StockManagement.ViewModel\CoffeeStore.StockManagement.ViewModel.csproj">
+      <Project>{1c1ac697-ad97-41b8-b96f-972b1308a88e}</Project>
+      <Name>CoffeeStore.StockManagement.ViewModel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
