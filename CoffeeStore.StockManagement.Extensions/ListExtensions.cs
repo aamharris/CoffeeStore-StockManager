@@ -5,14 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoffeeStore.StockManagement.App.Extensions
+namespace CoffeeStore.StockManagement.Extensions
 {
     public static class ListExtensions
     {
         public static ObservableCollection<T> ToObservableCollection<T>(this IEnumerable<T> collection)
         {
             var c = new ObservableCollection<T>();
-            foreach(var e in collection)
+            foreach (var e in collection)
             {
                 c.Add(e);
             }
